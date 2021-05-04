@@ -83,7 +83,6 @@ export default class Main extends Component {
     });
   }
 
-
   render() {
     const { plugin } = this.props;
     const {
@@ -91,7 +90,12 @@ export default class Main extends Component {
         global: { instanceUrl, authToken },
       },
     } = plugin;
-    const { initalValue, contentSlug } = this.state;
+    
+    // 
+    let { initalValue, contentSlug, slugField } = this.state;
+    if (slugField.attributes && slugField.attributes && slugField.attributes.appearance && slugField.attributes.appearance.parameters && slugField.attributes.appearance.parameters.url_prefix) { 
+      initalValue = slugField.attributes.appearance.parameters.url_prefix + initalValue; 
+    }
 
     return (
       <div className="container">

@@ -14,7 +14,7 @@ module.exports = {
   devServer: {
     contentBase: './',
     disableHostCheck: true,
-    public: 'https://datocms-plugin-gatsby-cloud.localtunnel.me',
+    public: 'https://trellis-datocms-plugin-gatsby-cloud.localtunnel.me',
   },
   module: {
     rules: [
@@ -23,6 +23,7 @@ module.exports = {
         include: __dirname + '/src',
         loader: 'eslint-loader',
         enforce: 'pre',
+        options: { emitWarning: true }
       },
       {
         test: /\.jsx?$/,
